@@ -1,9 +1,11 @@
 from django.urls import path
+from django.contrib import admin
 from . import views
+
 
 urlpatterns = [
     
-path('',views.index,name='index'),
-#in views.index .index is the name of the function called in views.py name is like id
-path('counter',views.counter, name='counter')
+path('admin/',admin.site.urls),
+path('drinks/',views.drink_list)
+
 ]
