@@ -1,9 +1,17 @@
  {% comment %} <h1>
     How you doing, {{name}}? Your age is {{age}}. You are from {{country}}.
 </h1> {% endcomment %}
-<h1> Input text: </h1>
-<form method="" action="counter"> 
-    <textarea name="text" rows="20" cols="100" placeholder="textarea"></textarea>
+{%load static%}
+<link rel="stylesheet" href="{%static 'style.css'%}">
+<h1> Input text: {{feature1.name}} </h1>
+<form method="POST" action="counter"> 
+    {% csrf_token %}
+    <textarea name="text" rows="20" cols="100" placeholder="{{feature1.details}}"></textarea>
     <br>
     <input type="submit"/>
-</form>
+</form> 
+{% for feature in features%}
+<h2> this is {{ feature.name}} <br>{{feature.details}}</h2>
+{% comment %} <h2> this is  feature 2 <br>{{feature2.id}} {{ feature2.name}} {{feature2.details}}</h2>
+<h2> this is  feature 3 <br>{{feature3.id}} {{ feature3.name}} {{feature3.details}}</h2> {% endcomment %}
+{% endfor %}
