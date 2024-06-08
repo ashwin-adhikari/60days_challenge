@@ -7,8 +7,14 @@ from rest_framework.urlpatterns import format_suffix_patterns
 urlpatterns = [
     
 path('admin/',admin.site.urls),
-# path('drinks/',views.drink_list),
-# path('drinks/<int:id>', views.drink_detail),
+path('drinks/',views.drink_list),
+path('drinks/<int:id>', views.drink_detail),
+path('drinkcreate/',views.drink_create),
+path('addquantity/',views.add_quantity),
+    
+# path('drinkdetails/<int:id>',views.drink_detail),
+# path('drinklist/',views.drink_list),
+
 
 ]
 urlpatterns = format_suffix_patterns(urlpatterns)
