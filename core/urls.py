@@ -22,4 +22,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('apps.urls')),
     path('drinkcreate/',views.drink_create),
+    path('drinks/',views.drink_list),
+    path('drinkdetails/<int:id>',views.drink_detail),
 ]

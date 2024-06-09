@@ -87,9 +87,7 @@ def drink_create(request):
     else:
         return HttpResponse(status=405)  # Method Not Allowed for other HTTP methods
 
-# import logging
 
-# logger = logging.getLogger(__name__)
 
 @csrf_exempt
 def add_quantity(request):
@@ -98,16 +96,11 @@ def add_quantity(request):
         json_data = request.body
         stream = io.BytesIO(json_data)
         pythondata = JSONParser().parse(stream)
-      #   logger.debug("Received data: %s", pythondata)
-      #debugging
 
 
         drink_name = pythondata.get('name')
         quantity_to_add = pythondata.get('quantity', 0)
 
-      #   if not Drink.objects.filter(name=drink_name).exists():
-      #           return JsonResponse({'error': 'Drink not found'}, status=404)
-            
         drink = Drink.objects.get(name=drink_name)
         drink.quantity += quantity_to_add
         drink.save()
@@ -123,4 +116,7 @@ def add_quantity(request):
         return HttpResponse(status=405) 
    
 
-
+def homepage(request):
+    drinks = Drink.objects.all()
+    return render(request, 'index.html', {'drinks': drinks})
+        
