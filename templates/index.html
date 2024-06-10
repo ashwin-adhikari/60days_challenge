@@ -6,11 +6,47 @@
     <title>Drink Order System</title>
 </head>
 <body>
-    <h1>Welcome to Drink Order System</h1>
+    {% comment %} <h1>Welcome to Drink Order System</h1>
     <ul>
         {% for drink in drinks %}
-            <li>{{ drink.name }} - ${{ drink.price }}</li>
+            <li>{{ drink.name }} - ${{ drink.price }} {{drink.quantity}}</li>
         {% endfor %}
-    </ul>
+    </ul> {% endcomment %}
+    <style>
+        table {
+            width: 50%;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Welcome to Drink Order System</h2>
+
+<table id="dynamicTable">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Quantity</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for drink in drinks %}
+        <tr>
+            <td>{{ drink.name }}</td>
+            <td>{{ drink.price }}</td>
+            <td>{{ drink.quantity }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
 </body>
 </html>

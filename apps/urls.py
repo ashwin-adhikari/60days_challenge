@@ -12,6 +12,7 @@ path('drinks/<int:id>', views.drink_detail),
 path('drinkcreate/',views.drink_create),
 path('addquantity/',views.add_quantity),
 path('', views.homepage, name='index'),
+path('drinkapi/', views.drinkapi.as_view()),
 
 
     

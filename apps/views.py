@@ -10,9 +10,45 @@ from rest_framework.parsers import JSONParser
 from rest_framework.renderers import JSONRenderer
 from django.views.decorators.csrf import csrf_exempt
 import json
+from django.views import View
+from django.utils.decorators import method_decorator
 
 
 # Create your views here.
+
+
+@method_decorator(csrf_exempt, name='dispatch')
+class drinkapi(View):
+    def get(self, request, *args, **kwargs):
+        json_data = request.body
+        stream = io.BytesIO(json_data)
+        pythondata = JSONParser().parse(stream)
+        id = pythondata.get('id',None)
+        if id is not None:
+            dr = Drink.objects.get(id=id)
+            serializer = DrinkSerializer(dr)
+            json_data= JSONRenderer().render(serializer.data)
+            return Response(json_data, content= 'application/json')
+        
+        dr = Drink.objects.all()
+        serializer = DrinkSerializer(dr, many=True)
+        json_data= JSONRenderer().render(serializer.data)
+        return Response(json_data, content= 'application/json')
+
+    def post(self, request, *args, **kwargs):
+        json_data = request.body
+        stream = io.BytesIO(json_data)
+        pythondata = JSONParser().parse(stream)
+        serializer = DrinkSerializer(data=pythondata)
+        if serializer.is_valid():
+            res = {'msg':'Data Created'}
+            json_data = JSONRenderer().render(res)
+            return Response(json_data, content= 'application/json')
+        json_data= JSONRenderer().render(serializer.errors)
+        return Response(json_data, content= 'application/json')
+    
+
+    
 @api_view(['GET', 'POST']) #this is a decorator
 def drink_list(request,format=None):
     if request.method == 'GET':
@@ -119,4 +155,7 @@ def add_quantity(request):
 def homepage(request):
     drinks = Drink.objects.all()
     return render(request, 'index.html', {'drinks': drinks})
+
+
+
         
