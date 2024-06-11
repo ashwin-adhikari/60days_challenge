@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse, JsonResponse
 from . models import Drink
 from .serializers import DrinkSerializer
@@ -12,40 +12,43 @@ from django.views.decorators.csrf import csrf_exempt
 import json
 from django.views import View
 from django.utils.decorators import method_decorator
+# from django import forms
+from .forms import DrinkForm
+
 
 
 # Create your views here.
 
 
-@method_decorator(csrf_exempt, name='dispatch')
-class drinkapi(View):
-    def get(self, request, *args, **kwargs):
-        json_data = request.body
-        stream = io.BytesIO(json_data)
-        pythondata = JSONParser().parse(stream)
-        id = pythondata.get('id',None)
-        if id is not None:
-            dr = Drink.objects.get(id=id)
-            serializer = DrinkSerializer(dr)
-            json_data= JSONRenderer().render(serializer.data)
-            return Response(json_data, content= 'application/json')
+# @method_decorator(csrf_exempt, name='dispatch')
+# class drinkapi(View):
+#     def get(self, request, *args, **kwargs):
+#         json_data = request.body
+#         stream = io.BytesIO(json_data)
+#         pythondata = JSONParser().parse(stream)
+#         id = pythondata.get('id',None)
+#         if id is not None:
+#             dr = Drink.objects.get(id=id)
+#             serializer = DrinkSerializer(dr)
+#             json_data= JSONRenderer().render(serializer.data)
+#             return Response(json_data, content= 'application/json')
         
-        dr = Drink.objects.all()
-        serializer = DrinkSerializer(dr, many=True)
-        json_data= JSONRenderer().render(serializer.data)
-        return Response(json_data, content= 'application/json')
+#         dr = Drink.objects.all()
+#         serializer = DrinkSerializer(dr, many=True)
+#         json_data= JSONRenderer().render(serializer.data)
+#         return Response(json_data, content= 'application/json')
 
-    def post(self, request, *args, **kwargs):
-        json_data = request.body
-        stream = io.BytesIO(json_data)
-        pythondata = JSONParser().parse(stream)
-        serializer = DrinkSerializer(data=pythondata)
-        if serializer.is_valid():
-            res = {'msg':'Data Created'}
-            json_data = JSONRenderer().render(res)
-            return Response(json_data, content= 'application/json')
-        json_data= JSONRenderer().render(serializer.errors)
-        return Response(json_data, content= 'application/json')
+#     def post(self, request, *args, **kwargs):
+#         json_data = request.body
+#         stream = io.BytesIO(json_data)
+#         pythondata = JSONParser().parse(stream)
+#         serializer = DrinkSerializer(data=pythondata)
+#         if serializer.is_valid():
+#             res = {'msg':'Data Created'}
+#             json_data = JSONRenderer().render(res)
+#             return Response(json_data, content= 'application/json')
+#         json_data= JSONRenderer().render(serializer.errors)
+#         return Response(json_data, content= 'application/json')
     
 
     
@@ -70,28 +73,33 @@ def drink_list(request,format=None):
           return Response(serializer.data, status=status.HTTP_201_CREATED)
        
 
-@api_view(['GET','PUT','DELETE'])
-def drink_detail(request,id):
+# @api_view(['GET','PUT','DELETE'])
+# def drink_detail(request,id=None):
    
-   try:
-      #checking just to make sure its a valid request
-      drink = Drink.objects.get(pk=id)
-   except Drink.DoesNotExist:
-      return Response(status=status.HTTP_404_NOT_FOUND)
+#    try:
+#       #checking just to make sure its a valid request
+#       drink = Drink.objects.get(pk=id)
+#    except Drink.DoesNotExist:
+#       return Response(status=status.HTTP_404_NOT_FOUND)
 
-   if request.method == 'GET':
-      serializer = DrinkSerializer(drink)
-      return Response(serializer.data)
-   elif request.method == 'PUT':
-      serializer = DrinkSerializer(drink,data=request.data)
-      if serializer.is_valid():
-         serializer.save()
-         return Response(serializer.data)
-      return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+#    if request.method == 'GET':
+#       serializer = DrinkSerializer(drink)
+#       return Response(serializer.data)
+#    elif request.method == 'PUT':
+#       serializer = DrinkSerializer(drink,data=request.data)
+#       if serializer.is_valid():
+#          serializer.save()
+#          return Response(serializer.data)
+#       return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
       
-   elif request.method == 'DELETE':
-      drink.delete()
-      return Response(status=status.HTTP_204_NO_CONTENT)
+#    elif request.method == 'DELETE':
+#       drink.delete()
+#       return Response(status=status.HTTP_204_NO_CONTENT)
+#    elif request.method == 'POST':
+#        serializer = DrinkSerializer(data=request.data)
+#        if serializer.is_valid():
+#            serializer.save()
+#            return redirect('/drinkcreate/')
    
 
 
@@ -104,24 +112,24 @@ def drink_create(request):
         serializer = DrinkSerializer(data=pythondata)
         if serializer.is_valid():
             serializer.save()
-            return HttpResponse(json_data, content_type='application/json')
+            return redirect('/')
         json_data = JSONRenderer().render(serializer.errors)
-        return HttpResponse(json_data, content_type='application/json')
-    elif request.method == 'GET':
-        name = request.GET.get('name')
-        if name:
-            try:
-                drink = Drink.objects.get(name=name)
-                serializer = DrinkSerializer(drink)
-                return JsonResponse([serializer.data], safe=False)
-            except Drink.DoesNotExist:
-                return JsonResponse([], safe=False)
-        else:
-            drinks = Drink.objects.all()
-            serializer = DrinkSerializer(drinks, many=True)
-            return JsonResponse(serializer.data, safe=False)
-    else:
-        return HttpResponse(status=405)  # Method Not Allowed for other HTTP methods
+        return redirect(json_data, content_type='application/json')
+    # elif request.method == 'GET':
+    #     name = request.GET.get('name')
+    #     if name:
+    #         try:
+    #             drink = Drink.objects.get(name=name)
+    #             serializer = DrinkSerializer(drink)
+    #             return JsonResponse([serializer.data], safe=False)
+    #         except Drink.DoesNotExist:
+    #             return JsonResponse([], safe=False)
+    #     else:
+    #         drinks = Drink.objects.all()
+    #         serializer = DrinkSerializer(drinks, many=True)
+    #         return JsonResponse(serializer.data, safe=False)
+    # else:
+    #     return HttpResponse(status=405)  # Method Not Allowed for other HTTP methods
 
 
 
@@ -153,8 +161,13 @@ def add_quantity(request):
    
 
 def homepage(request):
+    if request.method == 'POST':
+        form = DrinkForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+    form = DrinkForm()
     drinks = Drink.objects.all()
-    return render(request, 'index.html', {'drinks': drinks})
+    return render(request, 'index.html', {'form':form,'drinks': drinks})
 
 
 
