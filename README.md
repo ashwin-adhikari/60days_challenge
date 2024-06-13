@@ -26,3 +26,5 @@ https://x.com/adhikariaswin7
 
 ```Day 11``` : https://twitter.com/adhikariaswin7/status/1800572124870152285
 
+```Day 12``` : https://x.com/adhikariaswin7/status/1800934353238884783?t=7PKQ6KEXOKe5x4kXjDRyMQ&s=19
+
