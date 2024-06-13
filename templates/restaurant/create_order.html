@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create Order</title>
+</head>
+<body>
+    {% if order.status == 'Completed' %}
+       <h1>Your orders: {{ order.items }}</h1>
+       <p>Total Amount: ${{ order.total_amount }}</p>
+    {%else%}
+       <form method="post">
+           {% csrf_token %}
+           <label for="create_order">Create:</label>
+           <select id="create_order" name="create_order">
+               <option value="add">{{item.item_name}} Items </option>
+               {% comment %} <option value="Card">Card</option> {% endcomment %}
+           </select>
+           <button type="submit">Add</button>
+       </form>
+    {%endif%}
+</body>
+</html>

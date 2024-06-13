@@ -25,7 +25,7 @@ class Item(models.Model):
         return self.item_name
 
 class Order(models.Model):
-    table = models.ForeignKey(Table)
+    table = models.ForeignKey(Table, on_delete=models.CASCADE)
     items = models.ManyToManyField(Item)
     total_amount = models.DecimalField(max_digits=5, decimal_places=2, default=0.0)
     status = [
@@ -43,11 +43,11 @@ class Order(models.Model):
         self.items.remove(item)
         self.calculate_total()
 
-    def calculate_total(self)
+    def calculate_total(self):
         self.total_amount = sum (item.item_price for item in self.items.all())
         self.save()
 
-    def __str__(self)
+    def __str__(self):
         return f"Order {self.id} Table {self.table.table_number}"
     
 
@@ -57,7 +57,7 @@ class Payment(models.Model):
         ('Card', 'Card'),
         ('Online', 'Online'),
     ]
-    order = models.OneToOneField(order, on_delete= models.CASCADE)
+    order = models.OneToOneField(Order, on_delete= models.CASCADE)
     amount_paid = models.DecimalField(max_digits=6, decimal_places=2)
     payment_method = models.CharField(max_length=10, choices=payment_choices, default='Card')
     payment_status = models.CharField(max_length=10, default='Pending')

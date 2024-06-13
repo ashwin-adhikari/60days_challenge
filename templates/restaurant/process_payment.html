@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Process Payment</title>
+</head>
+<body>
+    <h1>Process Payment for Order {{ order.id }}</h1>
+    <p>Total Amount: ${{ order.total_amount }}</p>
+
+    <form method="post">
+        {% csrf_token %}
+        <label for="payment_method">Payment Method:</label>
+        <select id="payment_method" name="payment_method">
+            <option value="Cash">Cash</option>
+            <option value="Card">Card</option>
+        </select>
+        <button type="submit">Pay</button>
+    </form>
+</body>
+</html>
