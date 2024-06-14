@@ -60,6 +60,3 @@ def create_or_update_drink():
 
 if __name__ == '__main__':
     create_or_update_drink()
-
-
-

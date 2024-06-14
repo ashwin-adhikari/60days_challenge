@@ -19,8 +19,8 @@
         {% comment %} <button type="submit">Pay</button> {% endcomment %}
         <h1>Order {{ table.id }}  {{order.id}} </h1>
     <p> Items: {% for order in orders%} 
-        {{order.items}}
-        {%endfor%}
+                    {{orders.items}}
+                {%endfor%}
     <p>Total Amount: ${{ order.total_amount }}</p>
     </form>
     <script>

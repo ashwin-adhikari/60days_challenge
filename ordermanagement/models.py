@@ -26,7 +26,7 @@ class Item(models.Model):
 
 class Order(models.Model):
     table = models.ForeignKey(Table, on_delete=models.CASCADE)
-    items = models.ManyToManyField(Item)
+    item = models.ManyToManyField(Item)
     total_amount = models.DecimalField(max_digits=5, decimal_places=2, default=0.0)
     status = [
         ('Pending', 'Pending'),
@@ -36,19 +36,19 @@ class Order(models.Model):
     order_status = models.CharField(max_length=10, choices=status, default= 'Pending')
 
     def add_item(self,item):
-        self.items.add(item)
+        self.item.add(item)
         self.calculate_total()
     
     def remove_item(self,item):
-        self.items.remove(item)
+        self.item.remove(item)
         self.calculate_total()
 
     def calculate_total(self):
-        self.total_amount = sum (item.item_price for item in self.items.all())
+        self.total_amount = sum (Item.item_price for item in self.item.all())
         self.save()
 
     def __str__(self):
-        return f"Order {self.id} Table {self.table.table_number}"
+        return f"Order {self.id} for  Table {self.table.table_number}"
     
 
 class Payment(models.Model):
@@ -70,12 +70,13 @@ class Manager(models.Model):
     name = models.CharField(max_length=200)
 
     def assign_table(self, table):
-        table.occupy_table()
+        Table.reserve_table()
 
     def view_order(self, order):
         return order
+    
     def manage_payment(self,payment):
-        payment.process_payment()
+        Payment.process_payment()
     
     def __str__(self):
         return self.name
