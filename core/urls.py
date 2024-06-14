@@ -21,7 +21,6 @@ from ordermanagement import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    # path('', include('apps.urls')),
+    path('', include('apps.urls')),
     path('', include('ordermanagement.urls')),
-   
 ]

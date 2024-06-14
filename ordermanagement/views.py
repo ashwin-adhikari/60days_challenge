@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Table, Order, Payment, Item, Manager
 from django.http import HttpResponse
+from rest_framework import viewsets
 
 # Create your views here.
 def table_list(request):

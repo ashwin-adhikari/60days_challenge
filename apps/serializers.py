@@ -2,11 +2,6 @@ from rest_framework import serializers
 from .models import Drink
 
 
-# class DrinkSerializer(serializers.ModelSerializer):
-#     class Meta:
-#         model = Drink
-#         fields = [ 'id','name','description','price']
-
 class DrinkSerializer(serializers.Serializer):
     name= serializers.CharField(max_length=100)
     description = serializers.CharField(max_length=500)
@@ -24,21 +19,21 @@ class DrinkSerializer(serializers.Serializer):
         return instance
 
     
-    #object validation
-    def validate(self, data):
-        value1 = data.get('quantity')
-        value2 = data.get('price')
-        if value1 > 50:
-            raise serializers.ValidationError('You\'ve achieved discount')
-        return data
+    # #object validation
+    # def validate(self, data):
+    #     value1 = data.get('quantity')
+    #     value2 = data.get('price')
+    #     if value1 > 50:
+    #         raise serializers.ValidationError('You\'ve achieved discount')
+    #     return data
     
 
-    # Field level validation
+    # # Field level validation
     
-    def validate_quantity(self,value):
-        if value > 50:
-         raise serializers.ValidationError('You\'ve achieved a discount.')
-        return value
+    # def validate_quantity(self,value):
+    #     if value > 50:
+    #      raise serializers.ValidationError('You\'ve achieved a discount.')
+    #     return value
 
 
         
