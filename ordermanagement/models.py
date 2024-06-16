@@ -69,6 +69,7 @@ class Payment(models.Model):
 
 class Manager(models.Model):
     name = models.CharField(max_length=200)
+    
 
     def assign_table(self, table):
         Table.reserve_table()
