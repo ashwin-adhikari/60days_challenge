@@ -20,6 +20,7 @@ INSTALLED_APPS = [
     "apps",
     "ordermanagement",
     "rest_framework",
+    "drf_spectacular",
     "corsheaders",
 ]
 
@@ -115,4 +116,10 @@ STATIC_ROOT = BASE_DIR / "staticfiles"
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-REST_FRAMEWORK = {}
+REST_FRAMEWORK = {
+    "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
+}
+
+SPECTACULAR_SETTINGS = {
+    "title": "DRF Order Management",
+}
