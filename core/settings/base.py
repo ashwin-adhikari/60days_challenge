@@ -20,6 +20,7 @@ INSTALLED_APPS = [
     "apps",
     "ordermanagement",
     "rest_framework",
+    "rest_framework.authtoken",
     "drf_spectacular",
     "corsheaders",
 ]

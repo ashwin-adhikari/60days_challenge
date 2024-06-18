@@ -1,5 +1,6 @@
 from rest_framework import serializers
 from .models import *
+from django.contrib.auth.models import User
 
 
 class TableSerializer(serializers.ModelSerializer):
@@ -91,3 +92,8 @@ class ManagerSerializer(serializers.ModelSerializer):
         model = Manager
         fields = "__all__"
 
+
+class UserSerializer(serializers.ModelSerializer):
+    class Meta(object):
+        model = User
+        fields = ["id", "username", "password", "email"]
