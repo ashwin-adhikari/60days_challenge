@@ -40,3 +40,4 @@ https://x.com/adhikariaswin7
 
 ```Day 18``` : https://x.com/adhikariaswin7/status/1803100847477596165
 
+```Day 19``` : https://x.com/adhikariaswin7/status/1803478207745892404
