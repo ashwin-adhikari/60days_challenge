@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Order Details</title>
+</head>
+<body>
+    
+
+    <form method="GET">
+        {% csrf_token %}
+        {% comment %} <label for="order_details">Orders:</label>
+        <select id="order_details" name="order_details">
+            <input type="submit" class= "btn btn-danger" value="Cancel" onclick="submitform()">
+            <input type="submit" class= "btn btn-danger" value="Completed" onclick="submitform()">
+
+
+        </select> {% endcomment %}
+
+        {% comment %} <button type="submit">Pay</button> {% endcomment %}
+        <h1>Order {{ table.id }}  {{order.id}} </h1>
+    <p> Items: {% for order in orders%} 
+                    {{orders.items}}
+                {%endfor%}
+    <p>Total Amount: ${{ order.total_amount }}</p>
+    </form>
+    <script>
+        function submitForm() {
+        document.contact-form.submit();
+        document.contact-form.reset();
+        }
+    </script>
+</body>
+</html>
