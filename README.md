@@ -45,3 +45,5 @@ https://x.com/adhikariaswin7
 ```Day 20``` : https://x.com/adhikariaswin7/status/1803854091497673046
 
 ```Day 21``` : https://x.com/adhikariaswin7/status/1804212845309235265
+
+```Day 22``` : https://x.com/adhikariaswin7/status/1804563689137483897
