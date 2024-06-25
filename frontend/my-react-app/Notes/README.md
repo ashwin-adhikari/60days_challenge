@@ -42,3 +42,8 @@ It is used for complex component and it can be more time consuming. But if we ma
 - conditional rendering
   - allows you to control what gets rendered in your application based on certain conditions (show, hide, or change components)
   ![alt text](./images/condRendering.png)
+
+
+#Day4
+- rendering list
+  - rendering list involves using list name and ```map``` function to map the list item onto to frontend, using a key value unique for each item.

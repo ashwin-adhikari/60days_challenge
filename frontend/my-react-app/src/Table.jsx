@@ -12,7 +12,7 @@ function Table(props){
 
 
 }
-Table.protoTypes = {
+Table.proptypes= {
     capacity: PropTypes.number,
     isOccupied: PropTypes.bool,
     location: PropTypes.string,

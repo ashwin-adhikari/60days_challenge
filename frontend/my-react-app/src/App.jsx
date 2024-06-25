@@ -5,6 +5,7 @@ import Card from "./Card.jsx";
 import Button from "./Button.jsx";
 import Table from "./Table.jsx"; 
 import UserGreeting from "./UserGreeting.jsx";
+import List from "./List.jsx";
 function App() {
 
   return(
@@ -12,6 +13,7 @@ function App() {
       <Header/>
       <UserGreeting isLoggedIn={true} username="Ash"/>
       <Items/>
+      <List/>
       <Card/>
       <Table capacity={4} isOccupied={true} location="north" />
       <Table capacity={2} isOccupied={false} location="South" />
