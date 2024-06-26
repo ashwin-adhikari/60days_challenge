@@ -47,3 +47,13 @@ It is used for complex component and it can be more time consuming. But if we ma
 #Day4
 - rendering list
   - rendering list involves using list name and ```map``` function to map the list item onto to frontend, using a key value unique for each item.
+
+#Day5
+- onclick events
+  - an interaction when a user clicks on a specific element
+  - we can respond to clicks by passing a callback to onClick event handler
+  - ```const handleClick = () => console.log("Order Placed");``` creates a order placed output in console.
+  - event parameter is used to git output of event that happenned.
+  ![alt text](./images/eventparam.png)
+  - we can also use onDoubleClick event handler to handle double click i.e the query runs on double click
+  - we can use onClick event handler with buttons images

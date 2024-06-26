@@ -8,11 +8,15 @@ function Button(){
         border: "none",
         cursor: "pointer",
     }
+    // const handleClick = () => console.log("Order Placed");//outputs the string in console
+    // const handleClick = (e) => console.log(e);//outputs event that happened when clicking the button
+    const handleClick = (e) => e.target.textContent = "Order Placed ✅";
+
 
     return(
         
 
-        <button style={styles}>Order</button>
+        <button onClick={(e) => handleClick(e)} style={styles}>Order</button>
     );
 }
 export default Button
