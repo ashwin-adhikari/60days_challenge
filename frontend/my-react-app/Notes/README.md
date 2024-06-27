@@ -57,3 +57,11 @@ It is used for complex component and it can be more time consuming. But if we ma
   ![alt text](./images/eventparam.png)
   - we can also use onDoubleClick event handler to handle double click i.e the query runs on double click
   - we can use onClick event handler with buttons images
+
+  #Day6
+  - React hook
+    - a special function that allows functional component to use React features without writing class components
+    - useState, useEffect, useContext, useReducer, useCallback,etc
+  
+  - useState()
+    - a react hook that allows the creation of a stateful variable and a setter function to update its value in the virtual DOM [name, setName]

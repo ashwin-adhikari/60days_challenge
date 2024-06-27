@@ -6,19 +6,21 @@ import Button from "./Button.jsx";
 import Table from "./Table.jsx"; 
 import UserGreeting from "./UserGreeting.jsx";
 import List from "./List.jsx";
+import MyComponent from "./MyComponent.jsx"
 function App() {
 
   return(
     <>
-      <Header/>
+      {/* <Header/>
       <UserGreeting isLoggedIn={true} username="Ash"/>
-      <Items/>
-      <List/>
+      <Items/> */}
+      <MyComponent/>
+      {/* <List/>
       <Card/>
       <Table capacity={4} isOccupied={true} location="north" />
       <Table capacity={2} isOccupied={false} location="South" />
       <Button/>
-      <Footer/>
+      <Footer/> */}
     </>
 
 
