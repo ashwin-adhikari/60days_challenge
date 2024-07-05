@@ -57,3 +57,48 @@
   border-radius: 5px;
   margin:0;
 }
+.order{
+  align-items: center;
+  margin-top: auto;
+  padding: 10px;
+}
+.order-input{
+  margin:5px 10px;
+  
+}
+.add-to-cart{
+  background-color: hsl(0, 90%, 39%);
+  border:none;
+  border-radius: 3px;
+  color: azure;
+  max-width: 100px;
+  max-height: 40px;
+  height: 24px;
+}
+.inc-quantity-button{
+  background-color: hsl(0, 90%, 39%);
+  border:none;
+  border-radius: 3px;
+  color: azure;
+  max-width: 100px;
+  max-height: 40px;
+  height: 24px;
+
+}
+.add-item{
+  margin: 30px , 20px , 10px, 10px;
+  align-items: center;
+  justify-content: center;
+  
+}
+.quantity{
+  margin: 30px , 20px , 30px, 20px;
+}
+.payment{
+  margin: 30px , 20px , 30px, 20px;
+  align-items: center;
+  justify-self:center;
+}
+.pay-option{
+  margin: 20px, 30px, 40px, 20px;
+}

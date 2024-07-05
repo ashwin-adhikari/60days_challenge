@@ -65,3 +65,10 @@ It is used for complex component and it can be more time consuming. But if we ma
   
   - useState()
     - a react hook that allows the creation of a stateful variable and a setter function to update its value in the virtual DOM [name, setName]
+
+  
+  #Day7
+  - onChange event handler
+    - event handler primarily with form elements
+    e.g ```<input>, <select>,<radio>```
+    - triggers a function everytime the value of input changes
