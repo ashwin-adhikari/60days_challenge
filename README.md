@@ -66,4 +66,6 @@ https://x.com/adhikariaswin7
 
 ```Day 34``` : https://x.com/adhikariaswin7/status/1808903207701393803
 
-```Day 35``` : 
+```Day 35``` : https://x.com/adhikariaswin7/status/1809251714505289732
+
+```Day 36``` : https://x.com/adhikariaswin7/status/1809631153911132234
