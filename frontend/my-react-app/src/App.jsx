@@ -7,6 +7,7 @@ import Table from "./Table.jsx";
 import UserGreeting from "./UserGreeting.jsx";
 import List from "./List.jsx";
 import MyComponent from "./MyComponent.jsx"
+import ColorPicker from "./ColorPicker.jsx";
 function App() {
 
   return(
@@ -14,13 +15,15 @@ function App() {
       {/* <Header/>
       <UserGreeting isLoggedIn={true} username="Ash"/>
       <Items/> */}
-      <MyComponent/>
+      {/* <MyComponent/> */}
+
       {/* <List/>
       <Card/>
       <Table capacity={4} isOccupied={true} location="north" />
       <Table capacity={2} isOccupied={false} location="South" />
       <Button/>
       <Footer/> */}
+      <ColorPicker/>
     </>
 
 
