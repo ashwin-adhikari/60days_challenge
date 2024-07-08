@@ -12,7 +12,9 @@ export default function MyComponent() {
 
     }
     const incrementQuantity = () => {
-        setQuantity(quantity + 1);
+        setQuantity(quantity + 1);//this is a default function
+        setQuantity(q => q + 1);//this is a updater function
+
     }
     function handlePayment(e){
         setPayment(e.target.value);

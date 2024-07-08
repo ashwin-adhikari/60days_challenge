@@ -11,7 +11,7 @@ Currently, two official plugins are available:
 
 # Notes
 
-**#Day2**
+# Day2
 - CSS can be used inline, externally or through modules. Using inlline is like:
 ![alt text](./images/inlinecss.png)
 We use inline CSS for simple projects. Which donot need reuse. For complex component it becomes tedious.
@@ -21,7 +21,7 @@ It is also used for simple components.
 - And through creating modules, for which we typically create separate folder for the **<component>.jsx** file and include its css file there.<br>
 It is used for complex component and it can be more time consuming. But if we manage it can be helpful.
 
-**#Day3**
+# Day3
 - props 
  - read-only properties that are shared between component
  - A parent component can send data to a child component
@@ -44,11 +44,11 @@ It is used for complex component and it can be more time consuming. But if we ma
   ![alt text](./images/condRendering.png)
 
 
-#Day4
+# Day4
 - rendering list
   - rendering list involves using list name and ```map``` function to map the list item onto to frontend, using a key value unique for each item.
 
-#Day5
+# Day5
 - onclick events
   - an interaction when a user clicks on a specific element
   - we can respond to clicks by passing a callback to onClick event handler
@@ -58,7 +58,7 @@ It is used for complex component and it can be more time consuming. But if we ma
   - we can also use onDoubleClick event handler to handle double click i.e the query runs on double click
   - we can use onClick event handler with buttons images
 
-  #Day6
+# Day6
   - React hook
     - a special function that allows functional component to use React features without writing class components
     - useState, useEffect, useContext, useReducer, useCallback,etc
@@ -67,8 +67,24 @@ It is used for complex component and it can be more time consuming. But if we ma
     - a react hook that allows the creation of a stateful variable and a setter function to update its value in the virtual DOM [name, setName]
 
   
-  #Day7
+# Day7
   - onChange event handler
     - event handler primarily with form elements
     e.g ```<input>, <select>,<radio>```
     - triggers a function everytime the value of input changes
+
+# Day8
+  - updater function
+    - a function passed as an argument to setState() usually ex. setYear(arrow function or updater function)
+    - allows for safe updates based on previous state
+    - used with multiple state updates and asynchronous functions
+    - good practice to use updater function whenever possible
+  
+  - what does updater function do?
+    - takes the pending state to calculate next state
+    - updater function is in queue
+    - when ran next time they are called in same order.
+    - we can also update state of object using react ```setValue(prevValue => ({...prevValue, keyname: event.target.value}))```
+    - for array ```setValue(prevValue => ([...prevValue, newvalue]))```
+
+  - >...something is a spread operator, which has previous properties in useState , it is used when u want to change one key from object.
