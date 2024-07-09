@@ -73,3 +73,5 @@ https://x.com/adhikariaswin7
 ```Day 37``` : https://x.com/adhikariaswin7/status/1809974557928988910
 
 ```Day 38``` : https://x.com/adhikariaswin7/status/1810347795368526320
+
+```Day 39``` : https://x.com/adhikariaswin7/status/1810716691883774413
