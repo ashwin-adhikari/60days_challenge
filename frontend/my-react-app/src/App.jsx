@@ -8,6 +8,7 @@ import UserGreeting from "./UserGreeting.jsx";
 import List from "./List.jsx";
 import MyComponent from "./MyComponent.jsx"
 import ColorPicker from "./ColorPicker.jsx";
+import ToDoList from "./ToDoList.jsx";
 function App() {
 
   return(
@@ -23,7 +24,8 @@ function App() {
       <Table capacity={2} isOccupied={false} location="South" />
       <Button/>
       <Footer/> */}
-      <ColorPicker/>
+      {/* <ColorPicker/> */}
+      <ToDoList/>
     </>
 
 
