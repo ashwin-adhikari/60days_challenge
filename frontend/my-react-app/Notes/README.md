@@ -88,3 +88,21 @@ It is used for complex component and it can be more time consuming. But if we ma
     - for array ```setValue(prevValue => ([...prevValue, newvalue]))```
 
   - >...something is a spread operator, which has previous properties in useState , it is used when u want to change one key from object.
+
+# Day9 
+- useContext()
+  - React hook that allows you to share value between multiple levels of components without passing props through each level
+- Created four components ComponentA, B, C and D. Nested them onto each other.
+
+- > If we do not use useContext hook we have to pass props to each of the child component which is known as **Props Drilling**
+
+- We have to set up **Provider Component** from which the properties can be passed onto and **Consumer components** which use the properties.
+
+- for provider component we need:
+  - import {createContext} from "react"; 
+  - export const UserContext = createContext();
+  - <UserContext.Provider value={user}>
+                <ComponentB/>
+            </UserContext.Provider>
+  
+  - we imported createcontext, created a function for provider class to pass the value to consumers and nested the child class inside the function.

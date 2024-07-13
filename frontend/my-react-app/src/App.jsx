@@ -9,6 +9,7 @@ import List from "./List.jsx";
 import MyComponent from "./MyComponent.jsx"
 import ColorPicker from "./ColorPicker.jsx";
 import ToDoList from "./ToDoList.jsx";
+import ComponentA from "./ComponentA.jsx";
 function App() {
 
   return(
@@ -25,7 +26,8 @@ function App() {
       <Button/>
       <Footer/> */}
       {/* <ColorPicker/> */}
-      <ToDoList/>
+      {/* <ToDoList/> */}
+      <ComponentA/>
     </>
 
 
