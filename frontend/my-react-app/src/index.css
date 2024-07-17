@@ -218,7 +218,48 @@ li{
   margin-left: 10px;
 } */
 
-.box{
+/* .box{
   border: 3px solid;
   padding: 25px;
+} */
+
+body {
+  background-color: #f0f8ff;
+  font-family: 'Arial', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.weather-container {
+  background: linear-gradient(135deg, #74ebd5, #acb6e5);
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  max-width: 300px;
+  text-align: center;
+}
+
+.temperature, .time, .location {
+  background: rgba(255, 255, 255, 0.8);
+  margin: 10px 0;
+  padding: 15px;
+  border-radius: 8px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.temperature {
+  border-left: 5px solid #ff7e5f;
+}
+
+.time {
+  border-left: 5px solid #feb47b;
+}
+
+.location {
+  border-left: 5px solid #feb47b;
 }

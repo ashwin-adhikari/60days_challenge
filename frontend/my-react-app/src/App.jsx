@@ -10,6 +10,7 @@ import MyComponent from "./MyComponent.jsx"
 import ColorPicker from "./ColorPicker.jsx";
 import ToDoList from "./ToDoList.jsx";
 import ComponentA from "./ComponentA.jsx";
+import Weather from "./FetchData.jsx";
 function App() {
 
   return(
@@ -27,7 +28,8 @@ function App() {
       <Footer/> */}
       {/* <ColorPicker/> */}
       {/* <ToDoList/> */}
-      <ComponentA/>
+      {/* <ComponentA/> */}
+      <Weather/>
     </>
 
 
