@@ -7,6 +7,7 @@ from ordermanagement.views import *
 # from ordermanagement import views
 from rest_framework.routers import DefaultRouter
 from drf_spectacular.views import SpectacularAPIView, SpectacularSwaggerView
+from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 
 router = DefaultRouter()
 router.register(r"tables", TableViewSet)
@@ -25,4 +26,7 @@ urlpatterns = [
     re_path("login", AuthViewSet.login),
     re_path("signup", AuthViewSet.signup),
     re_path("test", AuthViewSet.test_token),
+    path("api/token/", TokenObtainPairView.as_view(), name= "get_token"),
+    path("api/token/refresh", TokenRefreshView.as_view(), name= "refresh"),
+    path("api-auth/",include("rest_framework.urls")),
 ]
