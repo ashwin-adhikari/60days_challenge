@@ -90,4 +90,3 @@ https://x.com/adhikariaswin7
 
 ```Day 46``` : https://x.com/adhikariaswin7/status/1813252784109879359
 
-```Day 47``` : https://x.com/adhikariaswin7/status/1813613565376680191
