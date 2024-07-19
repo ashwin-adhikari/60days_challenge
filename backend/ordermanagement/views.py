@@ -4,9 +4,14 @@ from django.http import HttpResponse
 from rest_framework import viewsets, status
 from .serializers import *
 from rest_framework.response import Response
-from rest_framework.decorators import action, api_view, authentication_classes,permission_classes
-from rest_framework.authentication import SessionAuthentication,TokenAuthentication
-from rest_framework.permissions import IsAuthenticated
+from rest_framework.decorators import (
+    action,
+    api_view,
+    authentication_classes,
+    permission_classes,
+)
+from rest_framework.authentication import SessionAuthentication, TokenAuthentication
+from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework.authtoken.models import Token
 from django.contrib.auth.models import User
 
@@ -70,6 +75,7 @@ class ManagerViewSet(viewsets.ModelViewSet):
 class AuthViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()
     serializer_class = UserSerializer
+    permission_classes = [AllowAny]
 
     @api_view(["POST"])
     def login(request):
@@ -96,8 +102,8 @@ class AuthViewSet(viewsets.ModelViewSet):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
     @api_view(["GET"])
-    @authentication_classes([SessionAuthentication,TokenAuthentication])
-    @permission_classes([IsAuthenticated])
+    @authentication_classes([SessionAuthentication, TokenAuthentication])
+    # @permission_classes([IsAuthenticated])
     def test_token(request):
 
         return Response("passed for {}".format(request.user.email))
