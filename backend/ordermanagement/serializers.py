@@ -16,7 +16,9 @@ class TableSerializer(serializers.ModelSerializer):
 
     # def get_free_table(self,obj):
     #     return obj.free_table()
-    "Excluding reserve_table and free_table Methods: These methods change the state of the object and should not be invoked during serialization. Instead, they should be called in views or viewsets where the business logic resides."
+    """Excluding reserve_table and free_table Methods: 
+    These methods change the state of the object and should not be invoked during serialization.
+    Instead, they should be called in views or viewsets where the business logic resides."""
 
 
 class ItemSerializer(serializers.ModelSerializer):
