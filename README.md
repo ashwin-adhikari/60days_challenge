@@ -114,4 +114,6 @@ https://x.com/adhikariaswin7
 
 ```Day 59``` : https://x.com/adhikariaswin7/status/1817967459829416368
 
+```Day 60``` : https://x.com/adhikariaswin7/status/1818334799758868952
+
 
